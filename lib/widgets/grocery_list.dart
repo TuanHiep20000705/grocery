@@ -24,7 +24,7 @@ class _GroceryListState extends State<GroceryList> {
   }
 
   Future<List<GroceryItem>> _loadingData() async {
-    final url = Uri.https('lutter-prep-f5f13-default-rtdb.firebaseio.com', 'shopping-list.json');
+    final url = Uri.https('flutter-prep-f5f13-default-rtdb.firebaseio.com', 'shopping-list.json');
     final response = await http.get(url);
 
     if (response.statusCode >= 400) {
@@ -89,7 +89,7 @@ class _GroceryListState extends State<GroceryList> {
         ],
       ),
 
-      /** nếu màn chỉ cần lấy dữ liệu 1 lần thì nên dùng FutureBuilder,
+      /** nếu màn chỉ cần lấy dữ liệu 1 lần thì nên dùng FutureBuilder để code gọn,
        *  nếu cần chình sửa dữ liệu đó thì ko nên sử dụng Widget này.
        * **/
       body: FutureBuilder(future: _loadedItems, builder: (context, snapshot) {
